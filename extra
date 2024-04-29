@@ -1,0 +1,16 @@
+
+let pTag = document.querySelectorAll('#timer')[0]
+
+function timing(){
+    pTag.innerHTML = parseInt(pTag.innerText) - 1;
+    if(parseInt(pTag.innerText) > 0){
+        timer = setTimeout(timing, 1000)
+    }
+}
+
+timing()
+
+let stopButton = document.querySelectorAll('#stop')[0];
+stopButton.addEventListener("click",()=>{
+    clearTimeout(timer)
+})
