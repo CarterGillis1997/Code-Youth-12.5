@@ -52,3 +52,17 @@ let myNum = 50;
 if(myNum == 50){
     console.log("myNum = 50")
 }
+
+// For loops
+
+for(let i = 0; i < 10; i++){
+    console.log("hello")
+}
+
+for(let i = 0; i <= 10; i++){
+    console.log(i * 2)
+}
+
+for(let i = 0; i <= 50; i+=10){
+    console.log(i)
+}
