@@ -1,12 +1,15 @@
-// Write a function that takes a sentence as an argument and returns an array of each word. ex: "Hello how are you" returns ["Hello","how","are","you"]. Use google to find how to split a string into an array
-
 // Using this object, console.log each value
 let myObj = {
     key_1:"Hello",
     key_2:"Howdy"
 }
+console.log(myObj.key_1, myObj.key_2)
+console.log(Object.values(myObj))
 
 // Add a third key to myObj using dot notation
+myObj.key_3 = "Hi"
+
+console.log(myObj)
 
 // Using a for loop add seven more keys to the following object
 let numberObj = {
@@ -14,6 +17,13 @@ let numberObj = {
     key_2:20,
     key_3:30
 }
+
+for(let i = 4; i < 11; i++){
+    numberObj["key_" + i] = i * 10
+}
+
+console.log(numberObj)
+
 
 // Console.log the definition of hello
 let hello = {
@@ -24,3 +34,6 @@ let hello = {
         "antonyms": []
       }
 }
+
+console.log(hello.definitions.definition)
+console.log(Object.values(hello.definitions)[0])

@@ -66,8 +66,24 @@ console.log(Object.keys(person))
 
 console.log(Object.values(person))
 
-// .find and .filter
+let arrayObjects = [
+    {
+        name:"jurimo",
+        age:29
+    },
+    {
+        name:"Carter",
+        age:26
+    }
+]
 
+console.log(arrayObjects)
+console.log(arrayObjects[0])
+console.log(arrayObjects[1])
+
+console.log(arrayObjects[0].name)
+
+// .find and .filter
 let store = [
     {
         name:"Potato Chip",
@@ -90,3 +106,44 @@ let store = [
         price:399.99
     }
 ]
+
+let apple = store.find(function(element){
+    if(element.name == "Apple"){
+        return element;
+    }
+})
+
+console.log(apple)
+
+let tv = store.find(function(element){
+    if(element.name == "Television"){
+        return element;
+    }
+})
+
+console.log(tv)
+
+let skateboard = store.find(function(element){
+    if(element.id == 326){
+        return element;
+    }
+})
+
+console.log(skateboard)
+
+let chip = "";
+for(let i = 0; i < store.length; i++){
+    if(store[i].name == "Potato Chip"){
+        chip = store[i]
+    }
+}
+
+console.log(chip)
+
+let under50 = store.filter(function(element){
+    if(element.price < 50){
+        return element;
+    }
+})
+
+console.log(under50)
