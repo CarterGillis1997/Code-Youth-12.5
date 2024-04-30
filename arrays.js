@@ -52,3 +52,25 @@ let letters = ["A","B","C",'D'];
 for(let i = 0; i < letters.length; i++){
     console.log(letters[i])
 }
+
+let multiArray = [10, "Hello", true, 5.5];
+
+for(let i = 0; i < multiArray.length; i++){
+    console.log(multiArray[i])
+}
+
+console.log(multiArray.length)
+
+// 2D Arrays
+
+let twoDimentionArray = [[5,47,95], [85, 46, 23]]
+
+console.log(twoDimentionArray)
+
+let ticTacToe = [
+    ["X","O",""],
+    ["O","X","O"],
+    ["","X","O"]
+]
+
+console.log(ticTacToe)
