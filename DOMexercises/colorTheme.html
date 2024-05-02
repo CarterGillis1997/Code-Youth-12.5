@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        .themes{
+            display: flex;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        .theme{
+            width: 10vh;
+            height: 10vh;
+            border: 1px solid black;
+        }
+        
+    </style>
+    
+    <h1>Change the color theme of this site</h1>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam laborum quis dolorem nam excepturi esse dolores beatae. Ut officiis tempora quisquam eum sed culpa, doloremque debitis eos eius veritatis assumenda unde dicta consectetur atque laboriosam saepe molestiae laudantium magnam nisi impedit ad in ea obcaecati! Repudiandae harum fuga natus mollitia id, aperiam unde quo, in, magni enim vero! Laudantium, aspernatur? Ipsum corrupti alias ab voluptatum, sapiente illum eum laudantium dignissimos incidunt voluptates officia quasi obcaecati velit neque recusandae harum atque enim reiciendis. Aliquid quae totam consequatur quas debitis, ad iste, corporis quibusdam necessitatibus repudiandae cumque error ea qui fuga aspernatur impedit, sapiente eum. Earum odio accusantium impedit dignissimos porro, atque labore corrupti rerum at! Eius fugit modi consectetur, tempora eaque, nam accusantium expedita quam praesentium dolor accusamus molestiae magnam harum doloremque itaque rem! Libero delectus molestias dolores veniam nisi eos veritatis quam, modi hic itaque labore autem, in maxime temporibus, vel voluptas? Minus consequatur, saepe, est quas, quisquam sit perspiciatis illo quis autem possimus quo veritatis totam fuga praesentium eaque at a ad amet nisi repudiandae nemo ipsum sunt. Totam optio quo cupiditate dolorum commodi temporibus, dignissimos quas voluptatem similique. Aliquid, eaque saepe. Sit repudiandae nobis est, quia quaerat, molestias alias cum, inventore sunt ab cumque! Iusto eaque reiciendis quod. Ab eveniet aliquam nemo a saepe nisi! Odit cum repellendus natus et deleniti tempore nesciunt vero nisi quo id velit fuga, sit nam assumenda omnis magnam. Deleniti asperiores eveniet dolore cumque voluptate labore fugit natus tenetur in numquam quaerat repellat, ea, amet maxime, veritatis ipsum! Sit, asperiores saepe excepturi voluptatum sequi dolores in maiores enim quidem quasi nesciunt sapiente consequatur? Nostrum quasi similique esse qui, eaque aspernatur repellendus voluptatem maiores autem hic iste dicta iure fugit maxime nulla consectetur? Hic nesciunt, explicabo deleniti dignissimos animi eius, et asperiores mollitia suscipit, inventore accusantium. Quae optio perspiciatis quas? Quisquam necessitatibus consectetur placeat illo, incidunt quis et, rerum maiores, pariatur labore assumenda eaque veniam consequuntur dolorum? Illo quos harum eligendi, voluptate repellendus pariatur inventore sed? Dolorem possimus aut dolor accusamus veritatis vel quasi temporibus autem praesentium cumque reprehenderit deleniti eaque beatae ipsa facere, omnis maxime! Explicabo minus eum dolor commodi odio odit rerum maiores, ducimus optio fuga magnam voluptatem voluptatum earum blanditiis quam tenetur porro laudantium atque consequuntur ad autem repellat doloremque. Suscipit nesciunt voluptatum laudantium beatae deleniti adipisci dolor vitae quisquam omnis distinctio quasi maxime atque, obcaecati tempore incidunt ab molestias ea explicabo est. Explicabo eos consectetur expedita! Quis dicta voluptatum eveniet soluta illum qui quibusdam aut? Reprehenderit hic recusandae expedita repellendus velit pariatur porro delectus quibusdam dicta nihil dolor laudantium aut neque, debitis fugit ex magnam ducimus natus eius, necessitatibus qui ipsam placeat deleniti? Consequuntur temporibus iusto eligendi incidunt in, maiores blanditiis iste laudantium quo saepe fugit perspiciatis fugiat, ex quae accusamus debitis porro aliquid doloribus cupiditate numquam? Quidem, totam molestias quasi doloribus, reprehenderit minus nam delectus eveniet vero ut ducimus voluptatem esse veniam reiciendis explicabo laborum officia asperiores inventore consectetur. Quo, nulla soluta rem voluptatum modi laboriosam voluptas! Eos, id!</p>
+    <button>Button</button>
+
+    <div class="themes">
+        <div class="theme" id="green" style="background-color: #2E7D32;"></div>
+        <div class="theme" id="red" style="background-color: red;"></div>
+        <div class="theme" id="blue" style="background-color: blue;"></div>
+    </div>
+
+    <script>
+        const themes = {
+            green:{
+                primary:"#2E7D32",
+                secondary:"#4CAF50",
+                text:"#ffc107"
+            },
+            red:{
+                primary:"red",
+                secondary:"yellow",
+                text:"black"
+            },
+            blue:{
+                primary:"blue",
+                secondary:"lightBlue",
+                text:"white"
+            }
+        }
+
+        function changeTheme(theme){
+            if(document.querySelector('#theme')){
+                document.querySelector('#theme').remove();
+            }
+
+            const style = document.createElement('style');
+            style.id = 'theme'
+            style.innerHTML = `p, h1, li, button{
+                color: ${theme.text};
+            }
+            body{
+                background-color: ${theme.primary};
+            }
+            button{
+                background-color: ${theme.secondary};
+            }`
+            
+            document.body.appendChild(style)
+        }
+
+        changeTheme(themes['blue'])
+
+        const themeButtons = document.querySelectorAll('.theme');
+        for(let i = 0; i < themeButtons.length; i++){
+            themeButtons[i].addEventListener("click",()=>{
+                changeTheme(themes[themeButtons[i].id])
+            })
+        }
+    </script>
+</body>
+</html>

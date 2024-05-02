@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="increment">Increment!</button>
+    <button id="decrement">Decrement!</button>
+    <button id="reset">Reset</button>
+
+    <h2>Current Count: <span id="counter">0</span></h2>
+
+    <script>
+        let increment = document.querySelector('#increment');
+        let decrement = document.querySelector('#decrement');
+        let reset = document.querySelector('#reset');
+        let counter = 0;
+        increment.addEventListener("click",function(){
+            counter++;
+            updateRender();
+        })
+        decrement.addEventListener("click",function(){
+            counter--;
+            updateRender();
+        })
+        reset.addEventListener("click",function(){
+            counter = 0;
+            updateRender();
+        })
+
+        function updateRender(){
+            document.querySelector('#counter').innerText = counter;
+        }
+    </script>
+</body>
+</html>

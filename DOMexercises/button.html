@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    *{
+    margin: 0;
+    padding: 0;
+    }
+    body{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    }
+    .button{
+        width: 25vh;
+        height: 25vh;
+        border: 1px solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        margin: 5vh;
+        border-radius: 1vh;
+    }
+    .button:hover{
+        cursor: pointer;
+    }
+    .bg{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform: scale(0);
+        background-color: red;
+        z-index: -1;
+        transition: .3s transform;
+        border-radius: 50vh;
+    }
+    </style>
+</head>
+<body>
+    <div class="button">
+        <p>Press</p>
+        <div class="bg"></div>
+    </div>
+
+    <script>
+        const button = document.querySelectorAll('.button')[0]
+        const bg = document.querySelectorAll('.bg')[0];
+        button.addEventListener("click",()=>{
+            bg.style.transform = 'scale(1.5)'
+        })
+        button.addEventListener("mouseenter",()=>{
+            bg.style.transform = 'scale(.2)'
+        })
+        button.addEventListener("mouseleave",()=>{
+            bg.style.transform = 'scale(0)'
+        })
+    </script>
+</body>
+</html>

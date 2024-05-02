@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        }
+        video{
+            width: 500px;
+        }
+        .controls{
+            width: 500px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .controls button{
+            font-size: 5vh;
+        }
+    </style>
+</head>
+<body>
+    <video state="pause" src="./Fish Spinning [RHuQqLxmEyg].webm" ></video>
+    <div class="controls">
+        <button id="rew">⏪</button>
+        <button id="play">⏯️</button>
+        <button id="for">⏩</button>
+    </div>
+
+    <script>
+        const video = document.querySelectorAll('video')[0]
+        const play = document.querySelectorAll('#play')[0];
+        play.addEventListener("click",(event)=>{
+            const state = video.getAttribute("state");
+            if(state == "pause"){
+                video.play();
+                video.setAttribute("state","playing")
+            }else{
+                video.pause()
+                video.setAttribute("state","pause")
+            }
+        })
+
+        const forwards = document.querySelectorAll('#for')[0];
+        forwards.addEventListener("click",()=>{
+            const cTime = video.currentTime;
+            const nTime = cTime + 10;
+            video.currentTime = nTime
+        })
+
+        const back = document.querySelectorAll('#rew')[0];
+        back.addEventListener("click",()=>{
+            const cTime = video.currentTime;
+            const nTime = cTime - 10;
+            video.currentTime = nTime
+        })
+    </script>
+</body>
+</html>

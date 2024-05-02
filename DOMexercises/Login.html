@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+    *{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    }
+    body{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    }
+    header{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: slategrey;
+        padding: 1vh 0;
+    }
+    header h1{
+        margin: 0 1vh;
+    }
+    .headerButtons{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 2.5vh;
+    }
+    .headerButtons p {
+        margin: 0 1vh;
+    }
+    header nav{
+        display: flex;
+    }
+
+    header nav div{
+        margin: 0 1vh;
+        height: 100%;
+    }
+    .user{
+        display: flex;
+    }
+    .userButton:hover{
+        cursor: pointer;
+        color: blue;
+    }
+
+    .overlay {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: #0000003b;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form {
+    background: white;
+    border-radius: 2vh;
+    width: 55vh;
+    padding: 5vh 0;
+}
+form * {
+    margin: 2vh 0;
+}
+form input, form button {
+    font-size: 2.5vh;
+}
+    </style>
+
+    <header>
+        <h1>Title</h1>
+        <div class="headerButtons">
+            <nav>
+                <div>Home</div>
+                <div>About</div>
+                <div>Contact Us</div>
+            </nav>
+            <div class="user">
+                <p><span id="login" class="userButton">Login</span> | <span id="signUp" class="userButton">Sign Up</span></p>
+            </div>
+        </div>
+    </header>
+    
+
+    <script>
+
+        // Get login and signup buttons
+        const userButtons = document.querySelectorAll('.userButton');
+
+        for(let i = 0; i < userButtons.length; i++){
+            userButtons[i].addEventListener("click",(event)=>{
+                overlay(userButtons[i].id)
+            })
+        }
+
+        // Creates the overlay and fills it with the selected form.
+        function overlay(type){
+            const overlay = document.createElement('div');
+            overlay.className = "overlay";
+            overlay.addEventListener("click",(event)=>{
+                console.log(event)
+                if(event.target.className == "overlay"){
+                    overlay.remove();
+                }
+            })
+
+            const form = document.createElement('form');
+            
+            const formContent = document.createElement('div');
+
+            if(type == "login"){
+                const title = document.createElement('h1');
+                title.innerText = 'Login';
+
+                const username = document.createElement('input');
+                username.id = 'uInput';
+                username.placeholder = 'Enter Username';
+                username.name = 'uInput';
+
+                const password = document.createElement('input');
+                password.type = 'password';
+                password.id = 'pInput';
+                password.name = 'pInput';
+                password.placeholder = 'Enter Password'
+
+                const submit = document.createElement('input');
+                submit.type = "submit";
+
+                formContent.append(title, username, password, submit);
+            }else if(type == "signUp"){
+                const title = document.createElement('h1');
+                title.innerText = 'Sign Up'
+
+                const email = document.createElement('input');
+                email.type = 'text'
+                email.placeholder = 'Enter Email'
+
+                const next = document.createElement('button');
+                next.innerText = 'Next';
+
+                formContent.append(title, email, next)
+            }
+
+            form.appendChild(formContent);
+            overlay.appendChild(form);
+            document.body.appendChild(overlay)
+        }
+    </script>
+</body>
+</html>

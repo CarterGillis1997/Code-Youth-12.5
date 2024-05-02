@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text{
+            font-size: 3vh;
+        }
+    </style>
+</head>
+<body>
+
+    <p class="text"></p>
+
+    <script>
+        const body = document.querySelectorAll('body')[0]
+        const text = document.querySelectorAll('.text')[0]
+        body.addEventListener("keydown",(event)=>{
+            const letter = event.key;
+            if(letter == "Backspace"){
+                const spans = document.querySelectorAll('span');
+                spans[spans.length - 1].remove()
+                return;
+            }
+            else if(letter.length !== 1){
+                return;
+            }
+            const newColor = genColor();
+            
+            const span = document.createElement('span');
+
+            span.innerText = letter;
+            span.style.color = newColor;
+
+            text.appendChild(span)
+        })
+
+        function genColor(){
+            const r = Math.random()*256
+            console.log(r)
+            const g = Math.floor(Math.random()*256)
+            const b = Math.floor(Math.random()*256)
+            return `rgb(${r}, ${g}, ${b})`
+        }
+    </script>
+</body>
+</html>
