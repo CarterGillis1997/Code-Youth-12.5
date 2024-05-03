@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .meaning p:nth-child(1) {
+    font-weight: 800;
+    font-size: 18px;
+    text-decoration: underline;
+}
+    </style>
+</head>
+<body>
+
+    <input id="input" type="text" placeholder="Search for a word">
+    <button id="search">Submit</button>
+
+
+    <script>
+        let search = document.querySelector('#search');
+        let input = document.querySelector('#input');
+
+        search.addEventListener("click",function(){
+            if(document.querySelectorAll(".load")[0]){
+                document.querySelectorAll('.load')[0].remove();
+            }
+            let searchTerm = input.value;
+            fetch('https://api.dictionaryapi.dev/api/v2/entries/en/' + searchTerm)
+            .then(response=>response.json())
+            .then(resp=>{
+                let load = document.createElement('div');
+                load.classList.add("load");
+
+                const title = document.createElement('h1');
+                title.innerText = searchTerm;
+
+                let phonetics = document.createElement('p');
+                phonetics.id = 'phonetics';
+                for(let i = 0; i < resp[0].phonetics.length; i++){
+                    if(resp[0].phonetics[i].text){
+                        phonetics.innerText = resp[0].phonetics[i].text;
+                        break;
+                    }
+                }
+
+                let meanings = [];
+                for(let i = 0; i < resp[0].meanings.length; i++){
+                    let meaningDiv = document.createElement('div');
+                    meaningDiv.classList.add("meaning");
+                    
+                    let pOS = document.createElement('p');
+                    pOS.innerText = resp[0].meanings[i].partOfSpeech;
+
+                    let definition = document.createElement('p');
+                    definition.innerText = resp[0].meanings[i].definitions[0].definition;
+
+                    let example = document.createElement('i');
+                    if(resp[0].meanings[i].definitions[0].example){
+                        example.innerText = '"' + resp[0].meanings[i].definitions[0].example + '"';
+                    }
+                    meaningDiv.append(pOS, definition, example);
+                    meanings.push(meaningDiv);
+                }
+
+                load.append(title, phonetics, ...meanings);
+
+                document.body.appendChild(load)
+            })
+        })
+    </script>
+</body>
+</html>
