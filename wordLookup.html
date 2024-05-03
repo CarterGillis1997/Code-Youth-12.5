@@ -38,9 +38,18 @@
 
                 let phonetics = document.createElement('p');
                 phonetics.id = 'phonetics';
+
+                let phoneticAudio = document.createElement("audio");
+                
                 for(let i = 0; i < resp[0].phonetics.length; i++){
                     if(resp[0].phonetics[i].text){
                         phonetics.innerText = resp[0].phonetics[i].text;
+                        phonetics.addEventListener("click",function(){
+                            document.querySelector("#phoneticAudio").play()
+                        })
+                        phoneticAudio.src = resp[0].phonetics[i].audio;
+                        // phoneticAudio.setAttribute("controls", true)
+                        phoneticAudio.id = "phoneticAudio"
                         break;
                     }
                 }
@@ -64,7 +73,9 @@
                     meanings.push(meaningDiv);
                 }
 
-                load.append(title, phonetics, ...meanings);
+                load.append(title, phonetics, phoneticAudio, ...meanings);
+
+                console.log(load)
 
                 document.body.appendChild(load)
             })
