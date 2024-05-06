@@ -54,12 +54,45 @@ class Storage{
 
 let fridge = new Storage("Fridge", ["Apple", "Cheese", "Celery"]);
 
-fridge.checkItems()
+fridge.checkItems();
 
 fridge.addItems(["Orange"])
 
-fridge.checkItems()
+fridge.checkItems();
 
 fridge.removeItems(["Cheese"]);
 
-fridge.checkItems()
+fridge.checkItems();
+
+
+class Car{
+    constructor(name, tires, engine, moonRoof, fuelType){
+        this.name = name;
+        this.specs = {
+            tires: tires,
+            engine: engine,
+            moonRoof: moonRoof,
+            fuelType: fuelType
+        }
+    }
+
+    checkSpecs = () => {
+        console.warn(this.name);
+        let keys = Object.keys(this.specs)
+        for(let i = 0; i < keys.length; i++){
+            console.log(keys[i] + ":" + this.specs[keys[i]])
+        }
+    }
+}
+
+let ChevyImpala = new Car("Chevy Impala", 4, "V6", false, "Gas(regular)")
+
+ChevyImpala.checkSpecs();
+
+let HyundaiSantaFe = new Car("Hyundai SantaFe", 4, "V6", true, "Gas(regular)")
+
+HyundaiSantaFe.checkSpecs()
+
+console.log(ChevyImpala)
+
+// Create a class that can be used to track a storage system. It should have three methods inside it. One to add items to storage, One to remove items from storage, and one to get a list of items from storage.
