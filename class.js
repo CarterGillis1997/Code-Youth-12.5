@@ -96,3 +96,37 @@ HyundaiSantaFe.checkSpecs()
 console.log(ChevyImpala)
 
 // Create a class that can be used to track a storage system. It should have three methods inside it. One to add items to storage, One to remove items from storage, and one to get a list of items from storage.
+
+class Container{
+    constructor(name, content){
+        this.name = name;
+        this.content = content;
+    }
+
+    checkContents(){
+        console.log(this.content)
+    }
+
+    addItem = (item) =>{
+        this.content.push(item)
+    }
+
+    removeItem = (item) =>{
+        let itemIndex = this.content.indexOf(item);
+        if(itemIndex != -1){
+            this.content.splice(itemIndex, 1)
+        }
+    }
+}
+
+let cupboard = new Container("Cupboard", ["Cereal", "Bread", "Knife"])
+
+cupboard.checkContents()
+
+cupboard.removeItem("Bread")
+
+cupboard.checkContents()
+
+cupboard.addItem("Fork");
+
+cupboard.checkContents()
