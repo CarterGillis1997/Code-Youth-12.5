@@ -3,8 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 // import Goodbye from './classes';
-import Buttons from "./symbols"
-
+// import Buttons from "./symbols"
+import TodoList from './array';
+import Database from './database';
+import Counter from './counter';
+import ControlledInput from './controlledInput';
+// import Boxes from './style';
+import Multiple from './multiple';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -14,7 +19,13 @@ root.render(
     <Greeting user="Carter" />
     <Greeting user="Jurimo" /> */}
     {/* <Goodbye name="Carter" /> */}
-    <Buttons />
+    {/* <Buttons /> */}
+    {/* <TodoList /> */}
+    {/* <Database /> */}
+    {/* <Counter /> */}
+    {/* <ControlledInput /> */}
+    {/* <Boxes /> */}
+    <Multiple />
   </React.StrictMode>
 );
 
