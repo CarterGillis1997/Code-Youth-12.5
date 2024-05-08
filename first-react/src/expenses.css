@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+#root{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #CED3DC;
+}
+#content{
+    width: 60vw;
+    height: 30vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3vh;
+    background-color: #FCF7F8;
+    border-radius: 2vh;
+}
+.userUI{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.totalDiv{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #ABA9C3;
+    border-radius: 3vh;
+}
+
+#bill, #tipPercent, #people{
+    position: relative;
+    width: 80%;
+}
+#bill input, #people input{
+    width: calc(100% - 2vh);
+    border-radius: .5vh;
+    border: none;
+    background-color: #D0CFDE;
+    text-align: right;
+    padding: .5vh 1vh;
+    font-size: 2.5vh;
+}
+#tips{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+}
+.title{
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+}
+
+.spread{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+button{
+    background-color: #CED3DC;
+    border: none;
+    margin: .2vh;
+    font-size: 2vh;
+    border-radius: .5vh;
+    font-weight: 700;
+}
+.totalDiv button{
+        width: 80%;
+        height: 4vh;
+}
+.selected{
+    background-color: #4e4985;
+    color: white;
+}
+.spread {
+    font-size: 2.5vh;
+    font-weight: 700;
+    color: #4e4985;
+}
+.spread div p:nth-last-child(1){
+    font-weight: 100;
+}

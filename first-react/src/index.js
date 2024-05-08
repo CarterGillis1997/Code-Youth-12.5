@@ -9,10 +9,12 @@ import Database from './database';
 import Counter from './counter';
 import ControlledInput from './controlledInput';
 // import Boxes from './style';
-import Multiple from './multiple';
+// import Multiple from './multiple';
+import Initial from './functionalComponents';
+import Tip from './expenses';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <>
     {/* <Header />
     <Addition num1={5} num2={10} />
     <Addition num1={52} num2={34} />
@@ -25,8 +27,10 @@ root.render(
     {/* <Counter /> */}
     {/* <ControlledInput /> */}
     {/* <Boxes /> */}
-    <Multiple />
-  </React.StrictMode>
+    {/* <Multiple /> */}
+    {/* <Initial /> */}
+    <Tip />
+  </>
 );
 
 // If you want to start measuring performance in your app, pass a function
