@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import {createBrowserRouter, RouterProvider, Outlet} from "react-router-dom";
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Goodbye from './classes';
@@ -10,14 +11,61 @@ import Counter from './counter';
 import ControlledInput from './controlledInput';
 import Boxes from './style';
 import Multiple from './multiple';
-import Initial from './functionalComponents';
 import Tip from './expenses';
 import FunctionalCounter from './functionalCounter';
+import Animals from './animalPicture';
 
+const router = createBrowserRouter([
+  {
+    path:"/",
+    element:<div>Hello</div>
+  },
+  {
+    path:"/buttons",
+    element:<Buttons />
+  },
+  {
+    path:"/todo",
+    element:<TodoList />
+  },
+  {
+    path:"/database",
+    element:<Database />
+  },
+  {
+    path:"/tip/calculator",
+    element:<Tip />
+  },
+  {
+    path:"/animals",
+    element: <div>
+      <a href='/animals/dog'>Dog</a>
+      <a href='/animals/cat'>Cat</a>
+      <Outlet />
+    </div>,
+    children:[
+      {
+        path:"/animals/dog",
+        element:<Animals type="dog" />
+      },
+      {
+        path:"/animals/cat",
+        element:<Animals type="cat" />
+      }
+    ]
+  }
+])
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <>
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
+)
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//   <>
     {/* <Buttons /> */}
     {/* <TodoList /> */}
     {/* <Database /> */}
@@ -25,10 +73,9 @@ root.render(
     {/* <ControlledInput /> */}
     {/* <Boxes /> */}
     {/* <Multiple /> */}
-    {/* <Initial /> */}
-    <Tip />
-  </>
-);
+    {/* <Tip /> */}
+//   </>
+// );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

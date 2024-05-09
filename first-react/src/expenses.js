@@ -1,5 +1,5 @@
 import React from "react";
-import "./expenses.css"
+// import "./expenses.css"
 class Tip extends React.Component{
     constructor(props){
         super(props);
