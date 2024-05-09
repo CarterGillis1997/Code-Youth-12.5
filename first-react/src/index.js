@@ -2,25 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-// import Goodbye from './classes';
-// import Buttons from "./symbols"
+import Goodbye from './classes';
+import Buttons from "./symbols"
 import TodoList from './array';
 import Database from './database';
 import Counter from './counter';
 import ControlledInput from './controlledInput';
-// import Boxes from './style';
-// import Multiple from './multiple';
+import Boxes from './style';
+import Multiple from './multiple';
 import Initial from './functionalComponents';
 import Tip from './expenses';
+import FunctionalCounter from './functionalCounter';
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-    {/* <Header />
-    <Addition num1={5} num2={10} />
-    <Addition num1={52} num2={34} />
-    <Greeting user="Carter" />
-    <Greeting user="Jurimo" /> */}
-    {/* <Goodbye name="Carter" /> */}
     {/* <Buttons /> */}
     {/* <TodoList /> */}
     {/* <Database /> */}
