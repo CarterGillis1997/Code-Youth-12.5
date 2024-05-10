@@ -1,0 +1,14 @@
+.menu{
+    width: 15vh;
+    height: 5vh;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-bottom-right-radius: 5vh;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
